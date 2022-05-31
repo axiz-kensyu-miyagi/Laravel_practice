@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CalcController;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// サンプル
 Route::get('/', function () {
-    return view('welcome');
+    return view('calc');
 });
+Route::post('/calc', [CalcController::class, 'calc']);
+
+
+
+
+
+
+
+// 不要なやつ
+Route::get('/list', [CalcController::class, 'filter']);
+Route::get('/detail/{id}', [CalcController::class, 'detail']);
